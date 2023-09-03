@@ -2741,6 +2741,156 @@ int main() {
     getline(cin, str);
     cout << countWords(str);
 }
+//print 2d array in a given pattern
+#include <iostream>
+using namespace std;
+#include <iostream>
+using namespace std;
+
+void print2DArray(int input[][1000], int n, int m) {
+	// Write your code here
+	for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i; j++) {
+            for (int k = 0; k < m; k++) {
+                cout << input[i][k] << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    
+}
+int main() {
+    int row, col;
+    cin >> row >> col;
+
+    int input[row][1000];
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+            cin>>input[i][j];
+        }
+    }
+    print2DArray(input, row, col);
+}
+//Minimum Length Word
+#include<iostream>
+#include<climits>
+#include<cstring>
+using namespace std;
+void minLengthWord(char input[], char output[]) {
+    int length = strlen(input);
+    int minWordStart = 0;
+    int minWordLength = INT_MAX;
+    int currentWordStart = 0;
+
+    for (int i = 0; i <= length; i++) {
+        if (input[i] == ' ' || i == length) {
+            int currentWordLength = i - currentWordStart;
+            if (currentWordLength < minWordLength) {
+                minWordStart = currentWordStart;
+                minWordLength = currentWordLength;
+            }
+            currentWordStart = i + 1;
+        }
+    }
+
+    for (int i = 0; i < minWordLength; i++) {
+        output[i] = input[minWordStart + i];
+    }
+
+    output[minWordLength] = '\0';  // Null-terminate the output string
+}
+
+int main(){
+  char ch[10000], output[10000];
+  cin.getline(ch, 10000);
+  minLengthWord(ch, output);
+  cout << output << endl;
+}
+//Leaders in array
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+void Leaders(int arr[], int len) {
+    int leaders[len]; // Create an array to store leaders
+
+    int maxRight = arr[len - 1]; // Initialize the maximum from the right as the last element
+    int leaderCount = 1; // Counter for leaders
+    leaders[0] = maxRight; // The rightmost element is always a leader
+
+    for (int i = len - 2; i >= 0; i--) {
+        if (arr[i] >= maxRight) {
+            maxRight = arr[i];
+            leaders[leaderCount++] = maxRight; // Store the leader in the array
+        }
+    }
+
+    // Print leaders in the order they appear
+    for (int i = leaderCount - 1; i >= 0; i--) {
+        cout << leaders[i] << " ";
+    }
+}
+int main()
+{
+    int len;
+    cin>>len;
+	int arr[len];
+	for(int i=0;i<len;i++)
+	{
+		cin>>arr[i];
+	}
+	Leaders(arr,len);
+}
+//write as you speak
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+#include <bits/stdc++.h> 
+string writeAsYouSpeak(int n) 
+{
+	// Write your code here.	
+	if (n == 1) {
+        return "1";
+    }
+
+    string prevSeq = writeAsYouSpeak(n - 1);
+    string result = "";
+
+    int count = 1;
+    for (int i = 0; i < prevSeq.length(); i++) {
+        if (i + 1 < prevSeq.length() && prevSeq[i] == prevSeq[i + 1]) {
+            count++;
+        } else {
+            result += to_string(count) + prevSeq[i];
+            count = 1;
+        }
+    }
+
+    return result;
+}
+}
+
+signed main()
+{
+
+  int n , m , q , tc;
+  cin>>tc;
+  while(tc--) {
+    cin>>n;
+    cout<<writeAsYouSpeak(n)<<endl;
+  }
+  
+  
+    
+    return 0;
+}
+
+
+
 
 
 
