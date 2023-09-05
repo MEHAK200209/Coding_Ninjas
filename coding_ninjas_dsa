@@ -2888,6 +2888,154 @@ signed main()
     
     return 0;
 }
+//Strings Operations
+#include<iostream>
+using namespace std;
+int main(){
+    string a= "abc";
+    string b= "def";
+    //push_back- to add character at rhe end of strinng
+    a.push_back('$');
+    
+    //insert= to insert more  than 1  character or number at a specific location
+    b.insert(1, "588m");
+    
+    //pop- to remove a character from the end
+    a.pop_back();
+    //erase- to remove more than one character from the string
+    b.erase(1, 2); //1st location se 2 character remove
+    //cout<< a<< b<< endl;
+    //cout<< a+b;
+    a.append(b);
+    cout<< a<<" "<< b;
+    
+    return 0;
+}
+//Remove Consecutive Duplicates
+#include <iostream>
+#include <cstring>
+using namespace std;
+string removeConsecutiveDuplicates(string str) 
+{
+    //Write your code here
+    //string result = string(1, str[0]);
+    string result= " ";
+    
+    for(int i=0; str[i]!= '\0'; i++ ){
+        if(str[i-1]!= str[i]){
+            result= result+ str[i];
+        }
+    }
+    return result;
+
+}
+
+int main() {
+    
+    string s;
+    cin >> s;
+    s = removeConsecutiveDuplicates(s);
+    cout << s;
+}
+//Reverse string word wise
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    string line;
+    getline(cin, line);
+
+    vector<string> words;
+    string word = "";
+
+    for (int i = 0; i < line.size(); i++) {
+        if (line[i] == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word.push_back(line[i]);
+        }
+    }
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    // Reverse the order of words
+    reverse(words.begin(), words.end());
+
+    // Print the reversed sentence
+    for (const string& w : words) {
+        cout << w << " ";
+    }
+
+    return 0;
+}
+//reverse every word
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+	string word;
+	cin>> word;
+	 reverse(word.begin(), word.end()); // end points to null character
+	 cout<< word;
+	 return 0;
+	
+}
+//Reverse each word
+//Alternate Approach
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    //Write your code here
+    string word;
+    while(cin>> word){
+        reverse(word.begin(), word.end());
+        cout<< word<< " ";
+        
+    }
+    return 0;
+
+}
+
+//Method
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    //Write your code here
+    string line;
+    getline(cin, line);
+    string word="";
+    for(int i=0; i< line.size(); i++){
+        if(line[i]==' '){
+            reverse(word.begin(), word.end());
+            cout<< word<< " ";
+            word = "";
+        }else{
+            word.push_back(line[i]);
+        }
+    }
+    
+    if(word!= ""){
+        reverse(word.begin(), word.end());
+        cout<< word<< " ";
+        
+    }
+    return 0;
+}
+
 
 
 
