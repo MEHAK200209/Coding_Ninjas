@@ -232,3 +232,198 @@ int main() {
     cout << *p << endl;
     return 0;
 }
+/*#include<iostream>
+using namespace std;
+int main(){
+	/*char a[]= "1,2,3";
+	char b[]= "abc";
+	
+	cout<< a<< endl;
+	cout<< b<< endl;
+	
+	char *c = &b[0];
+	cout<< c<< endl;
+	
+	char c1= 'a';
+	char *pc = &c1;
+	
+	cout<< c1<< endl;
+	cout<< pc<< endl; //a¦o it print until it find null value, so take garbae value
+	
+	char str= abcdwe';
+	char *pstr= "abcdwe";
+	
+	cout<< str<< endl;
+	cout<< pstr<< endl;
+	
+	
+	return 0;
+}
+//Reverse of a string
+#include<iostream>
+
+using namespace std;
+void func(char *str) 
+{
+    //write your code here
+    if(str == NULL){
+        return;
+    }
+     int length =0;
+     while (str[length] != '\0'){
+         length++;
+     }
+     for(int i=0; i< length/2; i++){
+         char temp = str[i];
+         str[i] = str[length-i-1];
+         str[length-i-1]= temp;
+
+     }
+    
+}
+int main()
+{
+    char ch[100001];
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        cin>>ch;
+        func(ch);
+        cout<<ch;
+	cout<<endl;
+    }
+}
+
+//Pointers and Functions
+#include<iostream>
+using namespace std;
+void print(int *p){
+	cout<< *p << endl;
+}
+void incrementpointer(int *p){
+	p= p+1;
+}
+void increment(int *p){
+	(*p)++;
+}
+int main(){
+	int i=10;
+	int *p= &i;
+	cout<< p<< endl;
+	incrementpointer(p);
+	cout<< p<< endl;
+	
+	cout<< *p<< endl;
+	increment(p);
+	cout<< *p<< endl;
+	
+	return 0;
+}
+
+#include<iostream>
+using namespace std;
+
+int sum(int a[], int size){  //this is pointer
+	cout<< sizeof(a)<< endl;
+	
+}
+int main(){
+	int a[10]; //this is array
+	cout<< sizeof(a)<< endl;
+	cout<< sum(a,10)<< endl;
+	return 0;
+	
+}
+
+// so we can just simply use it as pointer as well recieveing same output
+#include<iostream>
+using namespace std;
+
+int sum(int *a, int size){  //this is pointer
+	int ans=0;
+	for(int i=0; i< size; i++){
+		ans+= a[i];
+		
+	}
+	
+	
+}
+int main(){
+	int a[10]; //this is array
+	cout<< sizeof(a)<< endl;
+	cout<< sum(a,10)<< endl;
+	return 0;
+	
+}*/
+#include<iostream>
+using namespace std;
+/*void changeSign(int *p){
+  *p = (*p)  *  -1;
+}
+
+int main(){
+  int a = 10;
+  changeSign(&a);
+  cout << a << endl;
+  return 0;
+  void fun(int a[]) {
+    cout << a[0] << " ";
+}
+
+int main() {
+    int a[] = {1, 2, 3, 4};
+    fun(a + 1);
+    cout << a[0];
+
+}
+void square(int *p){
+ int a = 10;
+ p = &a;
+ *p = (*p) * (*p);
+}
+
+int main(){
+ int a = 10;
+ square(&a);
+ cout << a << endl;
+}
+
+//Swap Two Numbers
+#include <iostream>
+
+using namespace std;
+void swap(int *a,int *b)
+{
+    int temp= *a;
+    *a=*b;
+    *b= temp;
+	
+}
+int main()
+{
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        int a,b;
+        cin>>a>>b;
+        swap(&a , &b);
+        cout<<a<<" "<<b;
+        cout<<endl;
+    }
+}*/
+#include<iostream>
+using namespace std;
+int main(){
+	int i=10;
+	int *p = &i;
+	int **p2 = &p;   //A pointer is a variable that stores address of other variable, and what kid of data is to be stored is characterised by
+	cout<< p << endl;                // so to store a pointer's address we have to create a pointer pointer
+	cout<< p2 << endl;
+	
+	return 0;
+}
+
+
+
