@@ -560,5 +560,121 @@ int main() {
   return 0;
 }
 
+//Find Maxuimum
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+using namespace std;
+int* findmax(int *ar, int n)
+{
+    int max = ar[0];
+    int* max_ptr = &ar[0]; // Pointer to the maximum value
+
+    for(int i = 1; i < n; i++){
+        if(ar[i] > max){
+            max = ar[i];
+            max_ptr = &ar[i]; // Update the pointer to the new maximum value
+        }
+    }
+    
+    return max_ptr; // Return the pointer to the maximum value
+}
+int main()
+{
+   int n;
+   cin>>n;
+   int ar[n];
+   for(int i=0;i<n;i++)
+   {
+       cin>>ar[i];
+   }
+   int *ans =findmax(ar,n);
+   cout<<*ans;
+    
+}
+
+//Reverse an array
+#include <iostream>
+using namespace std;
+
+void reverseArray(int *arr, int n) {
+    int *start = arr;        // Pointer to the beginning of the array
+    int *end = arr + n - 1;  // Pointer to the end of the array
+
+    while (start < end) {
+        // Swap the elements pointed to by start and end
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+
+        // Move the pointers towards each other
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Original Array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Reverse the array
+    reverseArray(arr, n);
+
+    cout << "Reversed Array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+// Type casting
+/*#include<iostream>
+using namespace std;
+int main(){
+	int i= 65;
+	char c= i; // implicit typecasting: changing ne type of data into another
+	
+	int *p = &i;
+	//char *pc = p; //it will not convert, so we will do explicit typecasting
+	//8	13	C:\Users\LENOVO\Documents\cpp\Untitled1.cpp	[Error] cannot convert 'int*' to 'char*' in initialization 
+	
+	char *pc =(char*) p;
+	cout<< pc<< endl;
+	cout << p << endl;
+	
+	cout<< *pc<< endl;
+	cout<< (*pc+1)<< endl;
+	cout<< (*pc+2)<< endl;
+	cout<< (*pc+3)<< endl;
+	
+}
+*/
+#include <iostream>
+using namespace std;
+void updateValue(int *p){
+    *p = 610 % 255;
+}
+
+int main(){
+    char ch = 'A';
+    char *pt = &ch;
+    updateValue((int*)pt);
+    cout << ch;
+}
+
 
 
