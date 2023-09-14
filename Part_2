@@ -675,6 +675,85 @@ int main(){
     updateValue((int*)pt);
     cout << ch;
 }
+//Reference and Pass by Reference
+/*
+#include<iostream>
+using namespace std;
+void increment(int n){
+	n++;
+}
+
+void incrementref(int& n){
+	n++;
+}
+
+int& f(int n){
+	int a=n; 
+	return a;
+	
+}
+int* f2(){
+	int i=10; 
+	return &i;
+	
+}
+int main(){
+	int i;
+	i=17;
+	increment(i);
+	cout<< i<< endl; //reflects no change will print 17
+	incrementref(i);
+	cout<< i<< endl; //reflects change will print 18, because now both i and  are referring to same memory locations
+	int &j = i; //j as reference variable
+	i++;
+	//since i is incremented, therefore j gives 11, bcx now j is used as reference to the i'th variable value
+	
+	cout << j<< endl;
+	j++;
+	cout<< i<< endl; //since both i and j are referrring to same memory loction, therefore it will now give 12, 11+++
+	
+	int k=100;
+	j=k;
+	cout<< j<< endl;
+	
+	int* p = f2();
+	
+	int &k = f(i);
+	
+	//if we are returning reference or pointer of a local variable we are making a mistake, thts waste, bcz their scpe is confined to their 
+	//function only
+	
+}
+
+#include <iostream>
+using namespace std;
+
+void func(int p){
+    cout << p << " ";
+}
+
+int main(){
+    int i = 10;
+    int &p = i;
+    func(p++);
+    cout << i;
+}*/
+#include <iostream>
+using namespace std;
+
+void func(int i, int& j, int p){
+    i++;
+    j++;
+    p++;
+}
+
+int main(){
+    int i = 10;
+    int j = 6;
+    int &p = i;
+    func(i, j, p);
+    cout << i << " " << j << " " << p;
+}
 
 
 
