@@ -754,6 +754,174 @@ int main(){
     func(i, j, p);
     cout << i << " " << j << " " << p;
 }
+/*
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	cin>> n;
+	int arr[n];
+	for(int i=0; i<n; i++){
+		cin>> arr[i];
+	}
+	
+	for(int i=0; i<n; i++){
+		cout<< arr[i]<< " ";
+	}
+	
+}
+//Dynamiic Memory Allcation
+#include<iostream>
+using namespace std;
+int main(){
+	int *p = new int; //for dynamic memory allocation we use hep memory and to story a variable dynamically we use new keyword.
+	*p = 10;
+	cout << *p << endl;
+	
+	double *pd = new double;
+	
+	char*c = new char;
+	
+	int *pa = new int[50]; //array- total memory allocated here is: 200 bytes on heap, and 8 bytes on stack
+	
+	//and in this we can create an array of dyamic size as well
+	int n;
+	cin>> n;
+	int *arr = new int[n];   
+	
+	for(int i=0; i<n; i++){
+		cin>> arr[i];
+	}
+	
+	for(int i=0; i<n; i++){
+		cout<< arr[i]<< " ";
+	}
+	int max = -1; 
+	for(int i=0; i<n; i++){
+		if(arr[i]> max){
+			max = arr[i];
+		}
+	}
+	cout<< "max element is: "<< max<< endl;
+	
+}
+//Deallocate memory
+#include<iostream>
+using namespace std;
+int main(){
+	//whenever we create a dynamic memory or heapmemory we need to dlt it
+	
+	int*p = int new;
+	delete p; //single element deletion
+	//pointer isnt deleted, at value to which pointer is pointing is deleted;
+	int*pa = int new[50];
+	delete [] pa; //array deletion
+}
+
+//Move zeroes to the end
+#include<iostream>
+using namespace std;
+void movezeroes(int arr[],int n){
+    int nonzeroindex = 0;
+    int zerocount = 0;
+
+    for(int i=0; i< n; i++){
+        if(arr[i]!=0){
+            arr[nonzeroindex] = arr[i];
+             nonzeroindex++;
+        }
+
+        else{
+            zerocount++;
+        }
+    }
+
+    for(int i=nonzeroindex; i< n; i++){
+        arr[i]=0;
+    }
+
+}
+int main()
+{
+    //write your code here
+    int t;
+    cin>> t;
+    while(t--){
+        int n; 
+        cin>> n;
+        int arr[n];
+
+        for(int i=0;  i<n; i++){
+            cin>> arr[i];
+        }
+
+        movezeroes(arr, n);
+         for(int i=0;  i<n; i++){
+            cout<< arr[i]<< " ";
+        }
+        cout<< endl;
+
+    }
+    return 0; 
+}*/
+// move zeroes using dynamic allocation
+#include <iostream>
+using namespace std;
+
+void moveZeroes(int* arr, int n) {
+    int* result = new int[n];
+    int nonZeroIndex = 0;
+    int zeroCount = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != 0) {
+            result[nonZeroIndex] = arr[i];
+            nonZeroIndex++;
+        } else {
+            zeroCount++;
+        }
+    }
+
+    for (int i = nonZeroIndex; i < n; i++) {
+        result[i] = 0;
+    }
+
+    // Copy the result array back to the original array
+    for (int i = 0; i < n; i++) {
+        arr[i] = result[i];
+    }
+
+    delete[] result; // Deallocate the dynamically allocated memory
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+        int* arr = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            cin >> arr[i];
+        }
+
+        moveZeroes(arr, N);
+
+        for (int i = 0; i < N; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+
+        delete[] arr; // Deallocate memory for the input array
+    }
+
+    return 0;
+}
+
+
+
 
 
 
