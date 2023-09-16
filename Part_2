@@ -919,6 +919,87 @@ int main() {
 
     return 0;
 }
+//Dynamic Allocation of 2-D Arrays
+#include<iostream>
+using namespace std;
+int main(){
+	int m,n;
+	cin>> m>> n;
+	int** p = new int*[m];
+	for(int i=0; i< m; i++){
+		p[i] = new int[n];
+		for(int j=0; j< n; j++){
+			cin>> p[i][j];
+		}
+	}
+	
+	for(int i=0; i< m; i++){
+		delete [] p[i];
+	}
+	delete [] p;
+}
+//transpose of a matrix using dynamic allocation 
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int M, N;
+        cin >> M >> N;
+
+        // Create a dynamic array for the original matrix
+        int **matrix = new int *[M];
+        for (int i = 0; i < M; i++) {
+            matrix[i] = new int[N];
+        }
+
+        // Input the matrix elements
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                cin >> matrix[i][j];
+            }
+        }
+
+        // Create a dynamic array for the transpose matrix
+        int **transpose = new int *[N];
+        for (int i = 0; i < N; i++) {
+            transpose[i] = new int[M];
+        }
+
+        // Compute the transpose
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+
+        // Print the transpose matrix
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                cout << transpose[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+        // Deallocate memory for both matrices
+        for (int i = 0; i < M; i++) {
+            delete[] matrix[i];
+        }
+        delete[] matrix;
+
+        for (int i = 0; i < N; i++) {
+            delete[] transpose[i];
+        }
+        delete[] transpose;
+    }
+
+    return 0;
+}
+
+
 
 
 
