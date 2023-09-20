@@ -998,6 +998,32 @@ int main() {
 
     return 0;
 }
+int targetSum = 0;
+        for (int num : nums) {
+            targetSum += num;
+        }
+        targetSum -= x;
+        
+        int n = nums.size();
+        int left = 0;
+        int currentSum = 0;
+        int minOperations = INT_MAX;
+        
+        for (int right = 0; right < n; right++) {
+            currentSum += nums[right];
+            
+            while (currentSum > targetSum && left <= right) {
+                currentSum -= nums[left];
+                left++;
+            }
+            
+            if (currentSum == targetSum) {
+                minOperations = std::min(minOperations, n - (right - left + 1));
+            }
+        }
+        
+        return (minOperations != INT_MAX) ? minOperations : -1;
+
 
 
 
