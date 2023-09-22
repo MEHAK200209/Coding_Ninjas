@@ -1118,6 +1118,140 @@ int main(){
 	cout<< "size= "<< v.size()<<" " <<"capacity: "<< v.capacity()<< endl;
 }
 
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+	vector <int> v(5);
+	for(int i=0; i<5; i++){
+		cin>> v[i];
+	}
+	/*vector <int> :: iterator i = v.begin();
+	for(; i!= v.end(); i++){
+		cout<< *i<<" ";
+	}
+	cout<< v.at(4)<< endl;// return element at 5th location
+	cout<< v.size()<< " "<< v.empty()<< endl;
+	
+	//empty: return true(1) if container is empty, false(0) otherwise
+	v.clear(); //will clear the whole vector
+	cout<< v.size()<< " "<< v.empty()<< endl;
+	*/
+	reverse(v.begin(), v.end());
+	for(int i=0; i< 5; i++){
+		cout<< v[i]<<" ";
+	}
+	
+	//front and back, front will give you the first element and back will give you the last element
+	cout<<"\n"<< v.front() <<" "<< v.back()<< endl ;
+	v.erase(v.begin()+2);
+	for(int i=0; i< v.size(); i++){
+		cout<< v[i]<<" ";
+	}
+	
+	sort(v.begin(), v.end());
+	for(int i=0; i< v.size(); i++){
+		cout<< v[i]<<" ";
+	}
+	
+}
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ vector<int>vect;
+ vect.push_back(1);
+ vect.push_back(3);
+ vect.pop_back();
+ vect.push_back(2);
+ int answer;
+ if(vect.empty()){
+      answer =  vect.front();
+ }
+ else{
+      answer = vect.back();
+ }
+
+ cout << answer;
+}
+//Kth smallest and largest element in the arrayy
+//#include <iostream>
+#include <vector>
+
+using namespace std;
+#include<algorithm>
+vector<int> kthSmallLarge(vector<int> &arr, int n, int k)
+{
+    sort(arr.begin(), arr.end());
+
+    int kthSmallest, kthLargest;
+
+    kthSmallest = arr[k - 1];
+
+    kthLargest = arr[n - k];
+
+    return {kthSmallest, kthLargest};
+
+}
+
+class Runner
+{
+    int t;
+    vector<vector<int>> arrs;
+    vector<int> ns, ks;
+
+public:
+    void takeInput()
+    {
+        cin >> t;
+        for (int i = 0; i < t; i++)
+        {
+            int n, k;
+            cin >> n >> k;
+
+            vector<int> arr(n);
+            for(int i = 0; i < n; i++) 
+            {
+                cin >> arr[i];
+            }
+
+            ns.push_back(n);
+            ks.push_back(k);
+            arrs.push_back(arr);
+        }
+    }
+
+    void execute()
+    {
+        vector<vector<int>> arrsCopy = arrs;
+        vector<int> nsCopy = ns;
+        vector<int> ksCopy = ks;
+        for (int i = 0; i < t; i++)
+        {
+            vector<int> result = kthSmallLarge(arrsCopy[i], nsCopy[i], ksCopy[i]);
+        }
+    }
+
+    void executeAndPrintOutput()
+    {
+        for (int i = 0; i < t; i++)
+        {
+            vector<int> result = kthSmallLarge(arrs[i], ns[i], ks[i]);
+            cout << result[0] << ' ' << result[1] << '\n';
+        }
+    }
+};
+
+int main()
+{   
+    Runner runner;
+    runner.takeInput();
+    runner.executeAndPrintOutput();
+    return 0;
+}
+
+
 
 
 
